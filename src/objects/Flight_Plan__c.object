@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>Comments, notes, training information etc.</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Destination__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Flight Destination</description>
+        <externalId>false</externalId>
+        <label>Destination</label>
+        <referenceTo>Airport__c</referenceTo>
+        <relationshipLabel>Flight Plans (Destination)</relationshipLabel>
+        <relationshipName>Flight_Plans1</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Flight_duration__c</fullName>
+        <description>Flight duration in minutes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flight duration in minutes</inlineHelpText>
+        <label>Flight duration</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flight_plan_Distance__c</fullName>
+        <description>Total distance in miles</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total distance in miles</inlineHelpText>
+        <label>Flight plan Distance</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FromHome__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Origin__r.Code__c = &quot;EGCC&quot;, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>FromHome</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Leg_Distance__c</fullName>
+        <description>Total leg distance</description>
+        <externalId>false</externalId>
+        <label>Leg Distance</label>
+        <summarizedField>Flight_Plan_Leg__c.Distance__c</summarizedField>
+        <summaryForeignKey>Flight_Plan_Leg__c.Flight_Plan__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Leg_Time__c</fullName>
+        <description>Total Leg Time</description>
+        <externalId>false</externalId>
+        <label>Leg Time</label>
+        <summarizedField>Flight_Plan_Leg__c.Time__c</summarizedField>
+        <summaryForeignKey>Flight_Plan_Leg__c.Flight_Plan__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Origin__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Flight originates from</description>
+        <externalId>false</externalId>
+        <label>Origin</label>
+        <referenceTo>Airport__c</referenceTo>
+        <relationshipLabel>Flight Plans</relationshipLabel>
+        <relationshipName>Flight_Plans</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Flight Plan</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Flight Plan Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Flight Plans</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>read_only</fullName>
+        <active>true</active>
+        <label>read only</label>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Origin__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Destination__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
